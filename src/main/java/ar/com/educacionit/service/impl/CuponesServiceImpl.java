@@ -16,11 +16,6 @@ public class CuponesServiceImpl implements CuponesService{
 	@Autowired
 	private CuponesRepository repository;
 	
-	/*
-	public CuponesServiceImpl() {
-		this.reposiroty = new CuponesServiceImpl();
-	}*/
-	
 	@Override
 	public List<Cupones> findAll() {
 		return this.repository.findAll();
@@ -28,6 +23,21 @@ public class CuponesServiceImpl implements CuponesService{
 	
 	@Override
 	public void save(Cupones cupon) {
+		this.repository.save(cupon);		
+	}
+
+	@Override
+	public void delete(Long id) {
+		this.repository.deleteById(id);
+	}
+	
+	@Override
+	public Cupones getById(Long id) {	
+		return this.repository.findById(id).get();
+	}
+	
+	@Override
+	public void update(Cupones cupon) {
 		this.repository.save(cupon);		
 	}
 }
